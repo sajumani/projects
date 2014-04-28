@@ -71,3 +71,21 @@ function get_post_first_image() {
   return $first_img;
 }
  
+/***************** Custom Jquery Function Registeration*************/
+function custom_scripts(){
+    wp_register_script( 
+        's3Slider', 
+        get_template_directory_uri() . '/js/s3Slider.js', 
+        array( 'jquery' )
+    );
+	wp_register_script( 
+        'customquery', 
+        get_template_directory_uri() . '/js/custom.js', 
+        array( 'jquery' )
+    );
+	wp_enqueue_script('jquery');
+	wp_enqueue_script('customquery');
+	wp_enqueue_script('s3Slider');
+	
+}
+add_action('wp_print_scripts', 'custom_scripts');
