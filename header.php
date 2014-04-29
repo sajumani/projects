@@ -1,17 +1,25 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html <?php language_attributes(); ?>>
+<!--<![endif]-->
 <head>
-<!-- Meta, title, CSS, favicons, etc. -->
-<meta charset="utf-8">
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="author" content="" />
-<title><?php if(is_home()) { echo bloginfo("name"); echo " | "; echo bloginfo("description"); } else { echo wp_title(" | ", false, right); echo bloginfo("name"); } ?></title>
+<title><?php wp_title( '|', true, 'right' ); ?></title>
 <?php if(get_option(tk_theme_name.'_general_favicon')!=''): ?>
                 <link rel="icon" href="<?php echo get_option(tk_theme_name.'_general_favicon'); ?>" type="image/ico">
-                <?php else: ?>
+<?php else: ?>
             	<link rel="icon" href="<?php bloginfo('template_url');?>/images/favicon.ico" type="image/ico">
 <?php endif; ?>
 <link href="<?php bloginfo('template_url');?>/css/fonts.css" rel="stylesheet" />
